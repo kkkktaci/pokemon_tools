@@ -21,23 +21,152 @@ export enum TYPE {
     Water,
 }
 
-const TYPE_NAMES= new Map<string, TYPE>()
-TYPE_NAMES.set('bug', TYPE.Bug)
-TYPE_NAMES.set('dark', TYPE.Dark)
-TYPE_NAMES.set('dragon', TYPE.Dragon)
-TYPE_NAMES.set('electric', TYPE.Electric)
-TYPE_NAMES.set('fighting', TYPE.Fighting)
-TYPE_NAMES.set('fire', TYPE.Fire)
-TYPE_NAMES.set('flying', TYPE.Flying)
-TYPE_NAMES.set('ghost', TYPE.Ghost)
-TYPE_NAMES.set('ground', TYPE.Ground)
-TYPE_NAMES.set('ice', TYPE.Ice)
-TYPE_NAMES.set('normal', TYPE.Normal)
-TYPE_NAMES.set('poison', TYPE.Poison)
-TYPE_NAMES.set('psychic', TYPE.Psychic)
-TYPE_NAMES.set('rock', TYPE.Rock)
-TYPE_NAMES.set('steel', TYPE.Steel)
-TYPE_NAMES.set('water', TYPE.Water)
+const TypeBug = {
+    type: TYPE.Bug,
+    zhName: '虫',
+    enName: 'bug',
+    primaryColor: '#99c631'
+}
+
+const TypeDark = {
+    type: TYPE.Dark,
+    zhName: '恶',
+    enName: 'dark',
+    primaryColor: '#4a4858'
+}
+
+const TypeDragon = {
+    type: TYPE.Dragon,
+    zhName: '龙',
+    enName: 'dragon',
+    primaryColor: '#0763ad'
+}
+
+const TypeElectric = {
+    type: TYPE.Electric,
+    zhName: '电',
+    enName: 'electric',
+    primaryColor: '#f5s13e'
+}
+
+const TypeFairy = {
+    type: TYPE.Fairy,
+    zhName: '妖精',
+    enName: 'fairy',
+    primaryColor: '#ef8dde'
+}
+
+const TypeFighting = {
+    type: TYPE.Fighting,
+    zhName: '格斗',
+    enName: 'fighting',
+    primaryColor: '#e24653'
+}
+
+const TypeFire = {
+    type: TYPE.Fire,
+    zhName: '火',
+    enName: 'fire',
+    primaryColor: '#ff9c52'
+}
+
+const TypeFlying = {
+    type: TYPE.Flying,
+    zhName: '飞行',
+    enName: 'flying',
+    primaryColor: '#88adde'
+}
+
+const TypeGhost = {
+    type: TYPE.Ghost,
+    zhName: '幽灵',
+    enName: 'ghost',
+    primaryColor: '#526bae'
+}
+
+const TypeGrass = {
+    type: TYPE.Grass,
+    zhName: '草',
+    enName: 'grass',
+    primaryColor: '#63bd52'
+}
+
+const TypeGround = {
+    type: TYPE.Ground,
+    zhName: '地面',
+    enName: 'ground',
+    primaryColor: '#d87846'
+}
+
+const TypeIce = {
+    type: TYPE.Ice,
+    zhName: '冰',
+    enName: 'ice',
+    primaryColor: '#71cec2'
+}
+
+const TypeNormal = {
+    type: TYPE.Normal,
+    zhName: '普通',
+    enName: 'normal',
+    primaryColor: '#9399a5'
+}
+
+const TypePoison = {
+    type: TYPE.Poison,
+    zhName: '毒',
+    enName: 'poison',
+    primaryColor: '#a567c7'
+}
+
+const TypePsychic= {
+    type: TYPE.Psychic,
+    zhName: '超能力',
+    enName: 'psychic',
+    primaryColor: '#f86e76'
+}
+
+const TypeRock= {
+    type: TYPE.Rock,
+    zhName: '岩石',
+    enName: 'rock',
+    primaryColor: '#c6bd8c'
+}
+
+const TypeSteel= {
+    type: TYPE.Steel,
+    zhName: '钢',
+    enName: 'steel',
+    primaryColor: '#5a90a9'
+}
+
+const TypeWater= {
+    type: TYPE.Water,
+    zhName: '水',
+    enName: 'water',
+    primaryColor: '#5395de'
+}
+
+export const Types = [
+    TypeBug,
+    TypeDark,
+    TypeDragon,
+    TypeElectric,
+    TypeFairy,
+    TypeFighting,
+    TypeFire,
+    TypeFlying,
+    TypeGhost,
+    TypeGrass,
+    TypeGround,
+    TypeIce,
+    TypeNormal,
+    TypePoison,
+    TypePsychic,
+    TypeRock,
+    TypeSteel,
+    TypeWater
+]
 
 export const TYPE_RESTRAIN = {
     [TYPE.Bug]: {
@@ -306,9 +435,11 @@ export const ABILITIES: {
     generation: string
 }[] = abilities.map(move => {
     let type
-    if (TYPE_NAMES.has(move.type)) {
-        type = TYPE_NAMES.get(move.type)
-    }
+    Types.forEach(t => {
+        if (t.enName === move.type) {
+            type = t.type
+        }
+    })
 
     return {
         type,
