@@ -23,14 +23,6 @@ run()
 
 async function run() {
     await getMoves()
-
-    fs.writeFile('./assets/abilities.json', JSON.stringify(abilities), function (error) {
-        if (error) {
-            console.log('保存技能失败!', error)
-        } else {
-            console.log('保存技能成功!')
-        }
-    })
 }
 
 async function getMoves() {
@@ -54,6 +46,13 @@ async function getMoves() {
         } catch (error) {
             console.log(error)
         }
-        
     }
+
+    fs.writeFile('./assets/abilities.json', JSON.stringify(abilities), function (error) {
+        if (error) {
+            console.log('保存技能失败!', error)
+        } else {
+            console.log('保存技能成功!')
+        }
+    })
 }
