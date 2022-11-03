@@ -1,3 +1,5 @@
+import abilities from './assets/abilities.json'
+
 export enum TYPE {
     Bug,
     Dark,
@@ -18,6 +20,24 @@ export enum TYPE {
     Steel,
     Water,
 }
+
+const TYPE_NAMES= new Map<string, TYPE>()
+TYPE_NAMES.set('bug', TYPE.Bug)
+TYPE_NAMES.set('dark', TYPE.Dark)
+TYPE_NAMES.set('dragon', TYPE.Dragon)
+TYPE_NAMES.set('electric', TYPE.Electric)
+TYPE_NAMES.set('fighting', TYPE.Fighting)
+TYPE_NAMES.set('fire', TYPE.Fire)
+TYPE_NAMES.set('flying', TYPE.Flying)
+TYPE_NAMES.set('ghost', TYPE.Ghost)
+TYPE_NAMES.set('ground', TYPE.Ground)
+TYPE_NAMES.set('ice', TYPE.Ice)
+TYPE_NAMES.set('normal', TYPE.Normal)
+TYPE_NAMES.set('poison', TYPE.Poison)
+TYPE_NAMES.set('psychic', TYPE.Psychic)
+TYPE_NAMES.set('rock', TYPE.Rock)
+TYPE_NAMES.set('steel', TYPE.Steel)
+TYPE_NAMES.set('water', TYPE.Water)
 
 export const TYPE_RESTRAIN = {
     [TYPE.Bug]: {
@@ -275,8 +295,25 @@ export const TYPE_RESTRAIN = {
     },
 }
 
-export const ABILITIES = {
+export const ABILITIES: {
+    id: number,
+    enName: string,
+    zhName: string,
+    accuracy: number | null,
+    power: number | null,
+    pp: number,
+    type: string,
+    generation: string
+}[] = abilities.map(move => {
+    let type
+    if (TYPE_NAMES.has(move.type)) {
+        type = TYPE_NAMES.get(move.type)
+    }
 
-}
+    return {
+        type,
+        ...move
+    }
+})
 
 export const POKEMON = {}
