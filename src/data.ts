@@ -46,7 +46,7 @@ const TypeElectric = {
     type: TYPE.Electric,
     zhName: '电',
     enName: 'electric',
-    primaryColor: '#f5s13e'
+    primaryColor: '#f5d13e'
 }
 
 const TypeFairy = {
