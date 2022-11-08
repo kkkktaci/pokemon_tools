@@ -431,10 +431,10 @@ export const ABILITIES: {
     accuracy: number | null,
     power: number | null,
     pp: number,
-    type: string,
+    type: TYPE,
     generation: string
 }[] = abilities.map(move => {
-    let type
+    let type = TypeNormal.type
     Types.forEach(t => {
         if (t.enName === move.type) {
             type = t.type
@@ -442,8 +442,8 @@ export const ABILITIES: {
     })
 
     return {
+        ...move,
         type,
-        ...move
     }
 })
 
