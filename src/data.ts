@@ -1,25 +1,6 @@
 import abilities from './assets/abilities.json'
 
-export enum TYPE {
-    Bug,
-    Dark,
-    Dragon,
-    Electric,
-    Fairy,
-    Fighting,
-    Fire,
-    Flying,
-    Ghost,
-    Grass,
-    Ground,
-    Ice,
-    Normal,
-    Poison,
-    Psychic,
-    Rock,
-    Steel,
-    Water,
-}
+import { TYPE } from './enums'
 
 const TypeBug = {
     type: TYPE.Bug,
