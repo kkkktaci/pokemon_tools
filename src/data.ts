@@ -405,7 +405,7 @@ export const TYPE_RESTRAIN = {
     },
 }
 
-export const ABILITIES: {
+export const MOVES: {
     id: number,
     enName: string,
     zhName: string,

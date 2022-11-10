@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 
-import { Types, ABILITIES, TYPE_RESTRAIN } from 'src/data'
+import { Types, MOVES, TYPE_RESTRAIN } from 'src/data'
 
 import TypeCell from './TypeCell.vue';
 
@@ -9,13 +9,13 @@ import TypeCell from './TypeCell.vue';
 const selectedAbiIds = ref([40, 8]) 
 
 const allTypes = computed(() => {
-    const abis = ABILITIES.filter(abi => selectedAbiIds.value.includes(abi.id))
-    return abis.map(abi => abi.type)
+    const ms = MOVES.filter(move => selectedAbiIds.value.includes(move.id))
+    return ms.map(m => m.type)
 })
 
 const strengthsTypes = computed(() => {
-    const abis = ABILITIES.filter(abi => selectedAbiIds.value.includes(abi.id))
-    return abis.flatMap(abi => TYPE_RESTRAIN[abi.type].strengths)
+    const ms = MOVES.filter(move => selectedAbiIds.value.includes(move.id))
+    return ms.flatMap(m => TYPE_RESTRAIN[m.type].strengths)
 })
 </script>
 
