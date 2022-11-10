@@ -76,6 +76,12 @@ button:focus-visible {
   text-align: center;
 }
 
+.type-cell {
+  width: 50px;
+  height: 24px;
+  box-sizing: border-box;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
