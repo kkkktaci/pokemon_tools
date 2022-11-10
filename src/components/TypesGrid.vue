@@ -2,7 +2,11 @@
 import { ref, computed } from 'vue'
 
 import { Types } from 'src/data'
-import { getTypesByMoveIds, getStrengthsTypesByMoveIds } from 'src/helper'
+import {
+    getTypesByMoveIds,
+    getStrengthsTypesByMoveIds,
+    getWeaknessTypesByMoveIds
+} from 'src/helper'
 
 import TypeCell from './TypeCell.vue'
 
@@ -12,6 +16,7 @@ const selectedMoveIds = ref([40, 8])
 const allTypes = computed(() => getTypesByMoveIds(selectedMoveIds.value))
 
 const strengthsTypes = computed(() => getStrengthsTypesByMoveIds(selectedMoveIds.value))
+const weaknessesTypes = computed(() => getWeaknessTypesByMoveIds(selectedMoveIds.value))
 </script>
 
 <template>
@@ -32,7 +37,7 @@ const strengthsTypes = computed(() => getStrengthsTypesByMoveIds(selectedMoveIds
                     :style="{ backgroundColor: xType.primaryColor, position: 'absolute', top: '-24px', left: 0 }"
                     class="type-cell"
                 >
-                    {{xType.zhName}}{{strengthsTypes.includes(xType.type) ? '⬆' : ''}}
+                    {{xType.zhName}}{{strengthsTypes.includes(xType.type) ? '⬆' : (weaknessesTypes.includes(xType.type) ? '⬇' : '')}}
                 </div>
                 <TypeCell :playerType="yType" :opponentType="xType" />
             </div>
