@@ -1,22 +1,17 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 
-import { Types, MOVES, TYPE_RESTRAIN } from 'src/data'
+import { Types } from 'src/data'
+import { getTypesByMoveIds, getStrengthsTypesByMoveIds } from 'src/helper'
 
-import TypeCell from './TypeCell.vue';
+import TypeCell from './TypeCell.vue'
 
 // Test 毒 冰
-const selectedAbiIds = ref([40, 8]) 
+const selectedMoveIds = ref([40, 8]) 
 
-const allTypes = computed(() => {
-    const ms = MOVES.filter(move => selectedAbiIds.value.includes(move.id))
-    return ms.map(m => m.type)
-})
+const allTypes = computed(() => getTypesByMoveIds(selectedMoveIds.value))
 
-const strengthsTypes = computed(() => {
-    const ms = MOVES.filter(move => selectedAbiIds.value.includes(move.id))
-    return ms.flatMap(m => TYPE_RESTRAIN[m.type].strengths)
-})
+const strengthsTypes = computed(() => getStrengthsTypesByMoveIds(selectedMoveIds.value))
 </script>
 
 <template>

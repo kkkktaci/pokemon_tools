@@ -2,126 +2,126 @@ import abilities from './assets/abilities.json'
 
 import { TYPE } from './enums'
 
-const TypeBug = {
+const TypeBug: Type = {
     type: TYPE.Bug,
     zhName: '虫',
     enName: 'bug',
     primaryColor: '#99c631'
 }
 
-const TypeDark = {
+const TypeDark: Type = {
     type: TYPE.Dark,
     zhName: '恶',
     enName: 'dark',
     primaryColor: '#4a4858'
 }
 
-const TypeDragon = {
+const TypeDragon: Type = {
     type: TYPE.Dragon,
     zhName: '龙',
     enName: 'dragon',
     primaryColor: '#0763ad'
 }
 
-const TypeElectric = {
+const TypeElectric: Type = {
     type: TYPE.Electric,
     zhName: '电',
     enName: 'electric',
     primaryColor: '#f5d13e'
 }
 
-const TypeFairy = {
+const TypeFairy: Type = {
     type: TYPE.Fairy,
     zhName: '妖精',
     enName: 'fairy',
     primaryColor: '#ef8dde'
 }
 
-const TypeFighting = {
+const TypeFighting: Type = {
     type: TYPE.Fighting,
     zhName: '格斗',
     enName: 'fighting',
     primaryColor: '#e24653'
 }
 
-const TypeFire = {
+const TypeFire: Type = {
     type: TYPE.Fire,
     zhName: '火',
     enName: 'fire',
     primaryColor: '#ff9c52'
 }
 
-const TypeFlying = {
+const TypeFlying: Type = {
     type: TYPE.Flying,
     zhName: '飞行',
     enName: 'flying',
     primaryColor: '#88adde'
 }
 
-const TypeGhost = {
+const TypeGhost: Type = {
     type: TYPE.Ghost,
     zhName: '幽灵',
     enName: 'ghost',
     primaryColor: '#526bae'
 }
 
-const TypeGrass = {
+const TypeGrass: Type = {
     type: TYPE.Grass,
     zhName: '草',
     enName: 'grass',
     primaryColor: '#63bd52'
 }
 
-const TypeGround = {
+const TypeGround: Type = {
     type: TYPE.Ground,
     zhName: '地面',
     enName: 'ground',
     primaryColor: '#d87846'
 }
 
-const TypeIce = {
+const TypeIce: Type = {
     type: TYPE.Ice,
     zhName: '冰',
     enName: 'ice',
     primaryColor: '#71cec2'
 }
 
-const TypeNormal = {
+const TypeNormal: Type = {
     type: TYPE.Normal,
     zhName: '普通',
     enName: 'normal',
     primaryColor: '#9399a5'
 }
 
-const TypePoison = {
+const TypePoison: Type = {
     type: TYPE.Poison,
     zhName: '毒',
     enName: 'poison',
     primaryColor: '#a567c7'
 }
 
-const TypePsychic= {
+const TypePsychic: Type = {
     type: TYPE.Psychic,
     zhName: '超能力',
     enName: 'psychic',
     primaryColor: '#f86e76'
 }
 
-const TypeRock= {
+const TypeRock: Type = {
     type: TYPE.Rock,
     zhName: '岩石',
     enName: 'rock',
     primaryColor: '#c6bd8c'
 }
 
-const TypeSteel= {
+const TypeSteel: Type = {
     type: TYPE.Steel,
     zhName: '钢',
     enName: 'steel',
     primaryColor: '#5a90a9'
 }
 
-const TypeWater= {
+const TypeWater: Type = {
     type: TYPE.Water,
     zhName: '水',
     enName: 'water',
@@ -405,16 +405,7 @@ export const TYPE_RESTRAIN = {
     },
 }
 
-export const MOVES: {
-    id: number,
-    enName: string,
-    zhName: string,
-    accuracy: number | null,
-    power: number | null,
-    pp: number,
-    type: TYPE,
-    generation: string
-}[] = abilities.map(move => {
+export const MOVES: Move[] = abilities.map(move => {
     let type = TypeNormal.type
     Types.forEach(t => {
         if (t.enName === move.type) {
