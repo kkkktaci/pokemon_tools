@@ -18,4 +18,16 @@ declare global {
         type: TYPE,
         generation: string
     }
+
+    type Pokemon = {
+        id: number,
+        name: string,
+        moves: string[],
+        types: string[],
+        stats: {
+            name: string,
+            baseStat: number
+        }[],
+        sprite: string
+    }
 }
