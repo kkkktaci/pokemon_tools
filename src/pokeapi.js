@@ -26,7 +26,7 @@ const client = axios.create({
 run()
 
 async function run() {
-    // await getMoves()
+    await getMoves()
     await getPokemon()
 }
 
@@ -35,16 +35,16 @@ async function getMoves() {
         console.log(`Fetching id:${id} move.`)
         try {
             const response = await client.get(`/move/${id}/`)
-            const move = response.data
+            const { data } = response.data
             const ability = {
-                id: move.id,
-                enName: move.names.find(name => name.language.name === 'en')?.name || '',
-                zhName: move.names.find(name => name.language.name === 'zh-Hans')?.name || '',
-                accuracy: move.accuracy,
-                power: move.power,
-                pp: move.pp,
-                type: move.type.name,
-                generation: move.generation.name
+                id: data.id,
+                enName: data.names.find(name => name.language.name === 'en')?.name || '',
+                zhName: data.names.find(name => name.language.name === 'zh-Hans')?.name || '',
+                accuracy: data.accuracy,
+                power: data.power,
+                pp: data.pp,
+                type: data.type.name,
+                generation: data.generation.name
             }
         
             abilities.push(ability)
