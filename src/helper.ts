@@ -1,4 +1,4 @@
-import { MOVES, TYPE_RESTRAIN } from 'src/data'
+import { Types, MOVES, TYPE_RESTRAIN } from 'src/data'
 import { TYPE } from 'src/enums'
 
 /**
@@ -29,4 +29,8 @@ export function getStrengthsTypesByMoveIds(moves: number[]): TYPE[] {
  export function getWeaknessTypesByMoveIds(moves: number[]): TYPE[] {
     const ms = MOVES.filter(move => moves.includes(move.id))
     return ms.flatMap(m => TYPE_RESTRAIN[m.type].weaknesses)
+}
+
+export function getTypePrimaryColor(typeName: string): string {
+    return Types.find(type => type.enName === typeName)?.primaryColor || 'white'
 }

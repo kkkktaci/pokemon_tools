@@ -23,7 +23,7 @@ const weaknessesTypes = computed(() => getWeaknessTypesByMoveIds(props.moveIds))
 </script>
 
 <template>
-    <div class="horizontal">
+    <div class="grid">
         <div v-for="(xType, xidx) in Types">
             <div v-for="(yType, yidx) in Types" class="cell" :key="xType.type+yType.type">
                 <!-- 己方属性 -->
@@ -49,9 +49,10 @@ const weaknessesTypes = computed(() => getWeaknessTypesByMoveIds(props.moveIds))
 </template>
 
 <style scoped>
-.horizontal {
+.grid {
     display: flex;
     flex-direction: row;
+    margin-left: 50px;
 }
 
 .cell {

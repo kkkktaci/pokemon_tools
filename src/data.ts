@@ -1,4 +1,5 @@
 import abilities from './assets/abilities.json'
+import pokemons from './assets/pokemons.json'
 
 import { TYPE } from './enums'
 
@@ -418,5 +419,7 @@ export const MOVES: Move[] = abilities.map(move => {
         type,
     }
 })
+
+export const POKEMONS: Pokemon[] = pokemons
 
 export const POKEMON = {}
