@@ -36,10 +36,6 @@ defineProps<{
     cursor: pointer;
 }
 
-.type:first-child {
-    margin-right: 4px;
-}
-
 .name {
     width: 128px;
     font-size: 1em;
