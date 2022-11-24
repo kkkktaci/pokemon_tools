@@ -10,13 +10,19 @@ import {
 
 import TypeCell from './TypeCell.vue'
 
+const props = withDefaults(defineProps<{
+    moveIds?: number[]
+}>(), {
+    moveIds: () => []
+})
+
 // Test 毒 冰
 const selectedMoveIds = ref([40, 8]) 
 
-const allTypes = computed(() => getTypesByMoveIds(selectedMoveIds.value))
+const allTypes = computed(() => getTypesByMoveIds(props.moveIds))
 
-const strengthsTypes = computed(() => getStrengthsTypesByMoveIds(selectedMoveIds.value))
-const weaknessesTypes = computed(() => getWeaknessTypesByMoveIds(selectedMoveIds.value))
+const strengthsTypes = computed(() => getStrengthsTypesByMoveIds(props.moveIds))
+const weaknessesTypes = computed(() => getWeaknessTypesByMoveIds(props.moveIds))
 </script>
 
 <template>
@@ -37,7 +43,7 @@ const weaknessesTypes = computed(() => getWeaknessTypesByMoveIds(selectedMoveIds
                     :style="{ backgroundColor: xType.primaryColor, position: 'absolute', top: '-24px', left: 0 }"
                     class="type-cell"
                 >
-                    {{xType.zhName}}{{strengthsTypes.includes(xType.type) ? '⬆' : (weaknessesTypes.includes(xType.type) ? '⬇' : '')}}
+                    {{xType.zhName}}{{strengthsTypes.includes(xType.type) ? '↑' : (weaknessesTypes.includes(xType.type) ? '↓' : '')}}
                 </div>
                 <TypeCell :playerType="yType" :opponentType="xType" />
             </div>
