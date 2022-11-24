@@ -21,16 +21,12 @@ if (isStrengths) {
 </script>
 
 <template>
-    <div class="type-cell container" :class="{ unused: isUnused, strengths: isStrengths, weakness: isWeakness }">
+    <div class="type-cell type-cell-font" :class="{ unused: isUnused, strengths: isStrengths, weakness: isWeakness }">
         {{powerValue}} x
     </div>
 </template>
 
 <style scoped>
-.container {
-    font-size: 14px;
-}
-
 .unused {
     background-color: black;
     color: white;

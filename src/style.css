@@ -80,6 +80,7 @@ button:focus-visible {
   width: 50px;
   height: 24px;
   box-sizing: border-box;
+  font-size: 0.8em;
 }
 
 @media (prefers-color-scheme: light) {
