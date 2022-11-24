@@ -15,7 +15,7 @@ import TypesGridVue from './components/TypesGrid.vue';
     </a>
   </div> -->
   <!-- <HelloWorld msg="Vite + Vue" /> -->
-  <TypesGridVue />
+  <TypesGridVue :move-ids="[40, 8]" />
 </template>
 
 <style scoped>

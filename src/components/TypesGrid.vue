@@ -16,9 +16,6 @@ const props = withDefaults(defineProps<{
     moveIds: () => []
 })
 
-// Test 毒 冰
-const selectedMoveIds = ref([40, 8]) 
-
 const allTypes = computed(() => getTypesByMoveIds(props.moveIds))
 
 const strengthsTypes = computed(() => getStrengthsTypesByMoveIds(props.moveIds))
