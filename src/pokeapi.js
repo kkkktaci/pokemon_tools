@@ -80,7 +80,7 @@ async function getPokemon() {
                 name: data.name,
                 moves: data.moves.map(move => move.move.name.replace('-', ' ')),
                 types: data.types.map(type => type.type.name),
-                stats: data.stats.map(stat => ({ name: stat.stat.name, baseStats: stat.base_stat })),
+                stats: data.stats.map(stat => ({ name: stat.stat.name, baseStat: stat.base_stat })),
                 sprite: data.sprites.front_default
             }
 
