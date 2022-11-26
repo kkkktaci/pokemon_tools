@@ -15,10 +15,11 @@ const primaryColor = getTypePrimaryColor(props.typeName)
 .type {
     height: 14px;
     font-size: 0.5em;
-    margin: auto 0;
+    margin: 0 0;
     border-radius: 4px;
     border: 1px solid gray;
     color: white;
+    box-sizing: border-box;
 }
 
 .type:first {

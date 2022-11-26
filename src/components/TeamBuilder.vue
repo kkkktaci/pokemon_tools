@@ -3,6 +3,10 @@ import { POKEMONS } from 'src/data'
 
 import BuilderItemVue from './BuilderItem.vue';
 
+defineProps<{
+    selectPokemon: (id: number) => void
+}>()
+
 defineEmits<{
     (e: 'back'): void
 }>()
@@ -12,7 +16,12 @@ defineEmits<{
     <div>
         <button class="back-button" @click="$emit('back')">&lt; Team</button>
         <ul class="builder-list">
-            <BuilderItemVue v-for="pokemon in POKEMONS" :key="pokemon.id" :pokemon="pokemon" />
+            <BuilderItemVue
+                v-for="pokemon in POKEMONS"
+                :key="pokemon.id"
+                :pokemon="pokemon"
+                @select="selectPokemon"
+            />
         </ul>
     </div>
 </template>
